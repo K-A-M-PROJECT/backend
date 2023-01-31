@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/product-db
+      database: product-db
+      username: root
+      password: root
