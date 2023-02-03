@@ -2,6 +2,7 @@ package com.kam.product.controllers;
 
 import com.kam.product.models.Product;
 import com.kam.product.services.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,17 +10,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/product")
+@AllArgsConstructor
 public class ProductController {
     private final ProductService productService;
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
     @GetMapping
     List<Product> getAllProducts() {
         return productService.getAllProduct();
     }
     @GetMapping("/{page}/{size}")
-    Page<Product> getAllProducts(@PathVariable("page") int page,
+    List<Product> getAllProducts(@PathVariable("page") int page,
                                  @PathVariable("size") int size) {
         return productService.getPaginatedProducts(page, size);
     }
@@ -29,7 +28,7 @@ public class ProductController {
     }
 
     @PostMapping
-    boolean addProduct(@RequestBody Product product) {
+    Product addProduct(@RequestBody Product product) {
         return productService.addProduct(product);
     }
 

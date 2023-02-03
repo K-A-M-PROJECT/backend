@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface ProductRepository extends MongoRepository<Product, String> {
     Optional<Product> findByCode(String code);
     void deleteByCode(String code);
-    Page<Product> findAll(Pageable pageable);
 }
