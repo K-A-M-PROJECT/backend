@@ -1,5 +1,6 @@
 package com.kam.product.services.impl;
 
+import com.kam.product.exceptions.ProductNotFoundException;
 import com.kam.product.models.Product;
 import com.kam.product.repositories.ProductRepository;
 import com.kam.product.services.ProductService;
@@ -31,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductByCode(String code) {
         return productRepository.findByCode(code).orElseThrow(
-                () -> new IllegalArgumentException("Product not found!")
+                () -> new ProductNotFoundException(code)
         );
     }
 
@@ -48,7 +49,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateProduct(String code, Product updatedProduct) {
         Product existingProduct = productRepository.findByCode(code).orElseThrow(
-                () -> new IllegalArgumentException("Product not found!")
+                () -> new ProductNotFoundException(code)
         );
         existingProduct.setCode(updatedProduct.getCode());
         existingProduct.setName(updatedProduct.getName());
