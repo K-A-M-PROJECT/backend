@@ -3,7 +3,7 @@ package com.kam.product.controllers;
 import com.kam.product.models.Product;
 import com.kam.product.services.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,32 +14,39 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
     @GetMapping
-    List<Product> getAllProducts() {
-        return productService.getAllProduct();
+    ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = productService.getAllProduct();
+        return ResponseEntity.ok().body(products);
     }
     @GetMapping("/{page}/{size}")
-    List<Product> getAllProducts(@PathVariable("page") int page,
+    ResponseEntity<List<Product>> getAllProducts(@PathVariable("page") int page,
                                  @PathVariable("size") int size) {
-        return productService.getPaginatedProducts(page, size);
+        List<Product> products = productService.getPaginatedProducts(page, size);
+        return ResponseEntity.ok().body(products);
     }
     @GetMapping("/{code}")
-    Product getProduct(@PathVariable("code") String code) {
-        return productService.getProductByCode(code);
+    ResponseEntity<Product> getProduct(@PathVariable("code") String code) {
+        Product product = productService.getProductByCode(code);
+        return ResponseEntity.ok().body(product);
     }
 
     @PostMapping
-    Product addProduct(@RequestBody Product product) {
-        return productService.addProduct(product);
+    ResponseEntity<Product> addProduct(@RequestBody Product product) {
+        Product addedProduct = productService.addProduct(product);
+        return ResponseEntity.ok().body(addedProduct);
     }
 
     @DeleteMapping("/{code}")
-    void deleteProduct(@PathVariable("code") String code) {
+    ResponseEntity<Void> deleteProduct(@PathVariable("code") String code) {
         productService.deleteProductByCode(code);
+        // returns a 204 No Content HTTP response, indicating that the resource was successfully deleted.
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{code}")
-    Product updateProduct(@PathVariable("code") String code,
+    ResponseEntity<Product> updateProduct(@PathVariable("code") String code,
                           @RequestBody Product updateProduct) {
-        return productService.updateProduct(code, updateProduct);
+        Product updatedProduct = productService.updateProduct(code, updateProduct);
+        return ResponseEntity.ok().body(updatedProduct);
     }
 }
