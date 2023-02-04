@@ -3,7 +3,7 @@ package com.kam.product.services.impl;
 import com.kam.product.models.Product;
 import com.kam.product.repositories.ProductRepository;
 import com.kam.product.services.ProductService;
-import org.springframework.data.domain.Page;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     @Override
     public List<Product> getAllProduct() {
@@ -24,9 +22,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> getPaginatedProducts(int page, int size) {
+    public List<Product> getPaginatedProducts(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return productRepository.findAll(pageable);
+        return productRepository.findAll(pageable).getContent();
     }
 
 
@@ -38,9 +36,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean addProduct(Product product) {
-        productRepository.save(product);
-        return true;
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
     }
 
     @Override
