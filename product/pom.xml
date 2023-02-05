@@ -44,6 +44,7 @@
             <artifactId>spring-data-mongodb</artifactId>
             <version>4.0.1</version>
         </dependency>
+
     </dependencies>
 
 </project>
