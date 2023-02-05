@@ -1,4 +1,4 @@
-package com.kam.product;
+package com.kam.product.unitTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kam.product.models.Product;
@@ -146,8 +146,6 @@ public class ProductControllerTest {
     void updateProduct_ShouldUpdateProduct() throws Exception {
         String code = "123";
         given(this.productService.getProductByCode(code)).willReturn(product1);
-
-
         given(productService.updateProduct(code, this.product2)).willReturn(this.product2);
 
         mockMvc.perform(put("/product/{code}", code)

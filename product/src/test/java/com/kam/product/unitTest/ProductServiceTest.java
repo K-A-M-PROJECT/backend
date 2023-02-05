@@ -1,4 +1,4 @@
-package com.kam.product;
+package com.kam.product.unitTest;
 
 import com.kam.product.models.Product;
 import com.kam.product.repositories.ProductRepository;
