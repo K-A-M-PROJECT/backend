@@ -1,6 +1,6 @@
 package com.kam.product.models;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.UUID;
 
 @Document
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Product {
 
@@ -17,5 +19,7 @@ public class Product {
     private String code;
     private String name;
     private Map<String, Object> fields;
+
+
 
 }
