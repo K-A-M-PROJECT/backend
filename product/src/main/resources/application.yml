@@ -5,5 +5,24 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/product-db
       database: product-db
+
+  cache:
+   redis:
+     time-to-live: 60000S
+      # This means that the cache data stored in Redis will live for 60000 seconds (15 H)
+      # before being automatically purged and refreshed. This setting helps to control the amount of
+      # time cache data is stored in Redis and prevents stale data from being served.
+
+
 server:
-  port: 8080
+  port: 8081
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+

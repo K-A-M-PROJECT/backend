@@ -4,6 +4,9 @@ import com.kam.product.models.Product;
 import com.kam.product.services.ProductService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +19,13 @@ import java.util.List;
 @Component
 public class ProductController {
     private final ProductService productService;
+
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProduct();
         return ResponseEntity.ok().body(products);
     }
+
     @GetMapping("/{page}/{size}")
     public ResponseEntity<List<Product>> getAllProducts(@PathVariable("page") int page,
                                  @PathVariable("size") int size) {
