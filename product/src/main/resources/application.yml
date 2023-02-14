@@ -6,6 +6,7 @@ spring:
       uri: mongodb://localhost:27017/product-db
       database: product-db
 
+
   cache:
    redis:
      time-to-live: 60000S
