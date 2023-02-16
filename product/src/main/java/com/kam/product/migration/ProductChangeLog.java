@@ -1,8 +1,10 @@
 package com.kam.product.migration;
 
 import com.kam.product.models.Product;
+import com.mongodb.client.MongoDatabase;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
+import io.mongock.api.annotations.RollbackExecution;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.Map;
@@ -102,6 +104,9 @@ public class ProductChangeLog {
         )));
     }
 
-
+    @RollbackExecution
+    public void rollbackSomeChange(MongoDatabase database) {
+        // implementation of the rollback for someChange
+    }
 
 }

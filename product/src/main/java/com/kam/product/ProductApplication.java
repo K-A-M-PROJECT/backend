@@ -24,7 +24,7 @@ public class ProductApplication {
         SpringApplication.run(ProductApplication.class, args);
     }
 
-    @Bean
+  /*  @Bean
     public MongockInitializingBeanRunner mongockRunner(ApplicationContext applicationContext, MongoClient mongoClient) {
 
         MongoSync4Driver driver = MongoSync4Driver.withDefaultLock(mongoClient, "product-db");
@@ -35,7 +35,7 @@ public class ProductApplication {
                 .addMigrationScanPackage("com.kam.product.migration")
                 .setSpringContext(applicationContext)
                 .buildInitializingBeanRunner();
-    }
+    }*/
 }
 
 

@@ -3,8 +3,8 @@ spring:
     name: product
   data:
     mongodb:
-      uri: mongodb://localhost:27017/product-db
-      database: product-db
+      uri: mongodb://user:password@localhost:27017/product-db
+
 
 
   cache:
@@ -26,4 +26,6 @@ logging:
           mongodb:
             core:
               MongoTemplate: DEBUG
-
+mongock:
+  migration-scan-package:
+    - "com.kam.product.migration"
