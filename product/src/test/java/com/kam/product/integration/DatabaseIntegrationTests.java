@@ -40,13 +40,13 @@ public class DatabaseIntegrationTests {
 
     @BeforeEach
     void setUp() {
-         Product product1 = new Product(
+        Product product1 = new Product(
                 "123",
                 "product 1",
                 Map.of("color", "red")
         );
 
-         Product product2 = new Product(
+        Product product2 = new Product(
                 "1234",
                 "product 2",
                 null
@@ -94,8 +94,8 @@ public class DatabaseIntegrationTests {
     @DisplayName("Get a product by the code: not found")
     public void testGetProductByCodeNotFound() {
         Exception exception = assertThrows(ProductNotFoundException.class, ()->
-                        this.productController.getProduct("123456")
-                );
+                this.productController.getProduct("123456")
+        );
         assertEquals("The product with code 123456 is not found.", exception.getMessage());
     }
 
