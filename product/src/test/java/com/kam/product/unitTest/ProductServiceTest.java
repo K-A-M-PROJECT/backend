@@ -1,5 +1,6 @@
 package com.kam.product.unitTest;
 
+import com.kam.product.exceptions.ProductNotFoundException;
 import com.kam.product.models.Product;
 import com.kam.product.repositories.ProductRepository;
 import com.kam.product.services.impl.ProductServiceImpl;
@@ -106,9 +107,9 @@ public class ProductServiceTest {
         String code = "123";
         given(productRepository.findByCode(code)).willReturn(Optional.empty());
 
-        Exception exception = assertThrows(IllegalArgumentException.class,
+        ProductNotFoundException exception = assertThrows(ProductNotFoundException.class,
                 () -> productService.getProductByCode(code));
-        assertEquals("Product not found!", exception.getMessage());
+        assertEquals("The product with code "+code+" is not found.", exception.getMessage());
 
     }
 
@@ -154,14 +155,14 @@ public class ProductServiceTest {
         given(this.productRepository.save(this.product1)).willReturn(this.product1);
 
 
-        Exception exception = assertThrows(IllegalArgumentException.class,
+        ProductNotFoundException exception = assertThrows(ProductNotFoundException.class,
                 ()-> this.productService.updateProduct(code, new Product(
                         null,
                         "159",
                         "product 3",
                         null
                 )));
-        assertEquals("Product not found!", exception.getMessage());
+        assertEquals("The product with code "+code+" is not found.", exception.getMessage());
 
         verify(this.productRepository).findByCode(code);
         verify(this.productRepository, never()).save(this.product1);

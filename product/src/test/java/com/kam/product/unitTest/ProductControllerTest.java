@@ -136,7 +136,7 @@ public class ProductControllerTest {
         willDoNothing().given(this.productService).deleteProductByCode(code);
 
         mockMvc.perform(delete("/product/{code}", code))
-                .andExpect(status().isOk());
+                .andExpect(status().isNoContent());
 
         verify(this.productService).deleteProductByCode(code);
     }
