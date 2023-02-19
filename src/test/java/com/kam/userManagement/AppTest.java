@@ -1,4 +1,4 @@
-package com.kam;
+package com.kam.userManagement;
 
 import static org.junit.Assert.assertTrue;
 

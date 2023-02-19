@@ -1,4 +1,4 @@
-package com.kam;
+package com.kam.userManagement;
 
 /**
  * Hello world!
