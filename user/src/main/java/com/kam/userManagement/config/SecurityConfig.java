@@ -9,10 +9,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 @Configuration
 @AllArgsConstructor
 public class SecurityConfig {
+
+    @Autowired
+    private DataSource dataSource;
 
     @Autowired
     private CustomUserDetailsContextMapper ctxMapper;
@@ -23,7 +30,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .anyRequest().fullyAuthenticated()
                 .and()
-                .formLogin();
+                .formLogin()
+                .and()
+                .rememberMe()
+                .key("secret_token")
+                .tokenRepository(tokenRepository());
+
 
         return http.build();
     }
@@ -42,6 +54,13 @@ public class SecurityConfig {
                 .passwordAttribute("userPassword")
                 .and()
                 .userDetailsContextMapper(ctxMapper);
+    }
+
+    @Bean
+    public PersistentTokenRepository tokenRepository(){
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+        return tokenRepository;
     }
 
 

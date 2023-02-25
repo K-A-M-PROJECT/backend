@@ -41,14 +41,15 @@ public abstract class User{
     @Column(name = "nickname")
     private String nickname;
 
-
     @ManyToMany
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "address_id")
     private Address address;
+
 
 }

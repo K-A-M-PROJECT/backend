@@ -32,10 +32,6 @@ public class Address {
     @Column(name="zip_code")
     private String zipCode;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private User user;
 
 
 }
