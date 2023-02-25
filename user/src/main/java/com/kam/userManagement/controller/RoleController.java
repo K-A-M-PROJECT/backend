@@ -19,8 +19,8 @@ public class RoleController {
     private final RoleService roleService;
 
 
-    @GetMapping(path = "/getAll")
-    public ResponseEntity<List<Role>> getRole() {
+    @GetMapping
+    public ResponseEntity<List<Role>> getRoles() {
         return new ResponseEntity<>(this.roleService.getAllRoles(), HttpStatus.OK);
     }
 
@@ -30,7 +30,7 @@ public class RoleController {
     }
 
 
-    @PostMapping(path = "/save")
+    @PostMapping
     public ResponseEntity<Role> saveRol(@RequestBody Role role) {
         Role ro =  this.roleService.save(role);
         return new ResponseEntity<>(ro, HttpStatus.OK);

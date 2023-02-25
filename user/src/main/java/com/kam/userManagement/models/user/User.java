@@ -2,18 +2,17 @@ package com.kam.userManagement.models.user;
 
 import com.kam.userManagement.models.Address;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "user", schema = "public")
-@Setter
-@Getter
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "userType")
+@Data
+@NoArgsConstructor
 public abstract class User{
 
     @Id
@@ -21,7 +20,7 @@ public abstract class User{
     @Column(name = "id")
     private long id;
 
-    @Column(name = "firstName")
+    @Column(name = "firstname")
     private String firstName;
 
     @Column(name = "lastName")
@@ -30,7 +29,7 @@ public abstract class User{
     @Column(name = "username")
     private String username;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "password")
@@ -38,8 +37,8 @@ public abstract class User{
 
     @ManyToMany
     @JoinTable(name = "user_roles",
-               joinColumns = @JoinColumn(name = "user_id"),
-               inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

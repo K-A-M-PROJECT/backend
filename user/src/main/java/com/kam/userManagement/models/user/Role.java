@@ -1,15 +1,16 @@
 package com.kam.userManagement.models.user;
 
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
+import java.io.Serializable;
+
 
 @Entity
 @Table(name = "role", schema = "public")
-@Setter
-@Getter
+@NoArgsConstructor
+@Data
 public class Role {
 
     @Id
@@ -17,7 +18,7 @@ public class Role {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "role", unique = true)
+    @Column(name = "role")
     private String role;
 
 

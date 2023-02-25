@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada2c4e5-8e1f-459e-b932-f51aec9daa42" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/user/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kam/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kam/userManagement/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kam/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kam/userManagement/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/example/demo/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/UserServiceApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/kam/userManagement/DemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +62,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "E:/Courses/Spring Boot Projects/backend/user/src/main/java/com/example/models"
+    "last_opened_file_path": "E:/Courses/Spring Boot Projects/backend/user/src/main/resources",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Courses\Spring Boot Projects\backend\user\src\main\resources" />
       <recent name="E:\Courses\Spring Boot Projects\backend\user\src\main\java\com\example\models" />
       <recent name="E:\Courses\Spring Boot Projects\backend\user\src\main\java\com\example" />
       <recent name="E:\Courses\Spring Boot Projects\backend" />
@@ -70,10 +77,11 @@
       <recent name="com.kam.userManagement.models" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kam.userManagement.config" />
       <recent name="com.kam.userManagement.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.user: Compose Deployment">
+  <component name="RunManager">
     <configuration name="DatabaseIntegrationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="product" />
       <extension name="coverage">
