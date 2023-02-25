@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada2c4e5-8e1f-459e-b932-f51aec9daa42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_5_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/UserServiceApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/UserServiceApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/resources/test-server.ldif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +61,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "19",
     "last_opened_file_path": "E:/Courses/Spring Boot Projects/backend/user/src/main/resources",
     "settings.editor.selected.configurable": "editor.preferences.import"

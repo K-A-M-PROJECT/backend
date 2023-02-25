@@ -1,5 +1,7 @@
 package com.kam.userManagement.config;
 
+import com.kam.userManagement.service.CustomUserDetailsContextMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@AllArgsConstructor
 public class SecurityConfig {
+
+    @Autowired
+    private CustomUserDetailsContextMapper ctxMapper;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -29,11 +35,15 @@ public class SecurityConfig {
                 .userDnPatterns("uid={0},ou=people")
                 .groupSearchBase("ou=groups")
                 .contextSource()
-                .url("ldap://localhost:8389/dc=springframework,dc=org")
+                .url("ldap://localhost:8389/dc=pluralsight,dc=com")
                 .and()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .passwordAttribute("userPassword");
+                .passwordAttribute("userPassword")
+                .and()
+                .userDetailsContextMapper(ctxMapper);
     }
+
+
 
 }
