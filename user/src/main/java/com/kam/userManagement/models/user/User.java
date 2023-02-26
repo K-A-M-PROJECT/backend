@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "user", schema = "public")
 @Data
 @NoArgsConstructor
-public abstract class User{
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +25,9 @@ public abstract class User{
 
     @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "fullName")
+    private String fullName;
 
     @Column(name = "username")
     private String username;

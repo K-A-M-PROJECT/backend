@@ -18,17 +18,17 @@ public class RegistrationService {
 
     public ResponseEntity<String> register(User user){
 
-        if(this.userRepository.findByEmail(user.getEmail()).isEmpty())
+        if(this.userRepository.findByEmail(user.getEmail()) != null)
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body("This email is already used");
 
-        if(this.userRepository.findByUsername(user.getUsername()).isEmpty())
+        if(this.userRepository.findByUsername(user.getUsername()) != null)
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body("This username is already used");
 
-        this.userRepository.save(user);
+        this.userRepository.addUser(user);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
