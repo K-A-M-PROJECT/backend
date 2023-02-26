@@ -22,7 +22,7 @@ public class UserRepository {
     @Autowired
     private LdapTemplate ldapTemplate;
 
-    private static final String USERS_BASE_DN = "ou=users,dc=example,dc=com";
+    private static final String USERS_BASE_DN = "ou=people,dc=pluralsight,dc=com";
 
     public void addUser(User user) {
         DirContextAdapter context = new DirContextAdapter(getUserDn(user.getUsername()));
