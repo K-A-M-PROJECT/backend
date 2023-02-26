@@ -1,9 +1,20 @@
 version: '3.1'
 
 services:
-  product-db:
+  app:
+    container_name: service
+    image: product-service:latest
+    environment:
+      MONGODB_URI: mongodb://user:password@mongo:27017/product-db
+      REDIS_HOST: cache
+    ports:
+      - "8085:8082"
+    networks:
+      app_network:
+  mongo:
     image: mongo:4.4.19-rc0-focal
-    container_name: db
+    container_name: mongo
+    hostname: mongo
     ports:
       - "27017:27017"
     volumes:
@@ -12,18 +23,16 @@ services:
       MONGO_INITDB_DATABASE: product-db
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: password
-  mongo-express:
-    image: mongo-express
-    container_name: mongo-express
-    ports:
-      - "8081:8081"
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: user
-      ME_CONFIG_MONGODB_ADMINPASSWORD: password
-      ME_CONFIG_MONGODB_URL: mongodb://user:password@product-db:27017/
+    networks:
+      app_network:
   cache:
     image: redis:latest
+    container_name: cache
     ports:
       - '6379:6379'
     volumes:
       - ./data:/data
+    networks:
+      app_network:
+networks:
+  app_network:

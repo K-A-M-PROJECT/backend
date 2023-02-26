@@ -1,10 +1,14 @@
+MONGODB_URI: mongodb://user:password@localhost:27017/product-db
+REDIS_HOST: localhost
+
 spring:
   application:
     name: product
   data:
     mongodb:
-      uri: mongodb://user:password@localhost:27017/product-db
-
+      uri: ${MONGODB_URI}
+    redis:
+      host: ${REDIS_HOST}
 
 
   cache:
