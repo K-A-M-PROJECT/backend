@@ -2,36 +2,27 @@ package com.kam.userManagement.models.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.ldap.odm.annotations.Attribute;
-import org.springframework.ldap.odm.annotations.DnAttribute;
 import org.springframework.ldap.odm.annotations.Entry;
 import org.springframework.ldap.odm.annotations.Id;
 
 import javax.naming.Name;
 
 
+@Entry(
+        base = "ou=people,dc=mj,dc=com",
+        objectClasses = { "person", "inetOrgPerson", "top" })
 @Data
 @NoArgsConstructor
-@ToString
-
-@Entry(
-        base = "dc=mj,dc=com",
-        objectClasses = {"top","person","organizationalPerson","inetOrgPerson"}
-)
 public class User {
-
     @Id
     private Name id;
 
-    @DnAttribute(value = "ou")
-    private String group;
+    private @Attribute(name = "cn") String username;
+    private @Attribute(name = "sn") String password;
 
-    @Attribute(name = "uid")
-    private String username;
-
-    @Attribute(name = "userPassword")
-    private String password;
-
-
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }

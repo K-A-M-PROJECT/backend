@@ -2,7 +2,7 @@ package com.kam.userManagement.controller;
 
 
 import com.kam.userManagement.models.user.User;
-import com.kam.userManagement.service.RegistrationService;
+import com.kam.userManagement.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/register")
 @AllArgsConstructor
+@RestController
 public class RegistrationController {
 
 
     @Autowired
-    public RegistrationService registrationService;
+    public UserService userService;
 
-//    @PostMapping
-//    public ResponseEntity<String> register(@RequestBody User user){
-//        return this.registrationService.register(user);
-//    }
+    @PostMapping
+    public void register(@RequestBody User user){
+        this.userService.create(user.getUsername(), user.getPassword());
+    }
 
 
 

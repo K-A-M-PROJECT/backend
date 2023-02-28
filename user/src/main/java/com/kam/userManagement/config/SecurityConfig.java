@@ -24,12 +24,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and().csrf().disable()
-                .formLogin()
-                .successHandler(new CustomAuthenticationSuccessHandler())
-                .and()
-                .logout();
+                .formLogin();
 
         return http.build();
     }
