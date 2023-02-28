@@ -18,32 +18,27 @@ import javax.sql.DataSource;
 public class SecurityConfig {
 
     @Autowired
-    private DataSource dataSource;
+    private CustomAuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .anyRequest().fullyAuthenticated()
+                .anyRequest().authenticated()
+                .and().csrf().disable()
+                .formLogin()
+                .successHandler(new CustomAuthenticationSuccessHandler())
                 .and()
-                .formLogin();
-
+                .logout();
 
         return http.build();
     }
 
+
+
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .ldapAuthentication()
-                .userDnPatterns("uid={0},ou=people")
-                .groupSearchBase("ou=groups")
-                .contextSource()
-                .url("ldap://localhost:8389/dc=pluralsight,dc=com")
-                .and()
-                .passwordCompare()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .passwordAttribute("userPassword");
+        auth.authenticationProvider(authenticationProvider);
     }
 
 

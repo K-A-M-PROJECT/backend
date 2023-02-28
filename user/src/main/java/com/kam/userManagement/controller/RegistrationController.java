@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @RequestMapping("/register")
 @AllArgsConstructor
 public class RegistrationController {
@@ -20,10 +19,10 @@ public class RegistrationController {
     @Autowired
     public RegistrationService registrationService;
 
-    @PostMapping
-    public ResponseEntity<String> register(@RequestBody User user){
-        return this.registrationService.register(user);
-    }
+//    @PostMapping
+//    public ResponseEntity<String> register(@RequestBody User user){
+//        return this.registrationService.register(user);
+//    }
 
 
 

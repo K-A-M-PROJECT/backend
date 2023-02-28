@@ -1,58 +1,37 @@
 package com.kam.userManagement.models.user;
 
-import com.kam.userManagement.models.Address;
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.ldap.odm.annotations.Attribute;
+import org.springframework.ldap.odm.annotations.DnAttribute;
+import org.springframework.ldap.odm.annotations.Entry;
+import org.springframework.ldap.odm.annotations.Id;
 
-import java.util.HashSet;
-import java.util.Set;
+import javax.naming.Name;
 
 
-@Entity
-@Table(name = "user", schema = "public")
 @Data
 @NoArgsConstructor
-public class User{
+@ToString
+
+@Entry(
+        base = "dc=mj,dc=com",
+        objectClasses = {"top","person","organizationalPerson","inetOrgPerson"}
+)
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+    private Name id;
 
-    @Column(name = "firstname")
-    private String firstName;
+    @DnAttribute(value = "ou")
+    private String group;
 
-    @Column(name = "lastName")
-    private String lastName;
-
-    @Column(name = "fullName")
-    private String fullName;
-
-    @Column(name = "username")
+    @Attribute(name = "uid")
     private String username;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password")
+    @Attribute(name = "userPassword")
     private String password;
-
-    @Column(name = "enabled")
-    private boolean enabled;
-
-    @Column(name = "nickname")
-    private String nickname;
-
-    @ManyToMany
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
-
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
 
 
 }
