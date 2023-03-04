@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada2c4e5-8e1f-459e-b932-f51aec9daa42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_3_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_6_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_6_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_6_0_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/models/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/kam/userManagement/service/RegistrationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/kam/userManagement/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/kam/userManagement/DemoApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,21 +88,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kam.product.unitTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kam.product.unitTest" />
-      <option name="MAIN_CLASS_NAME" value="com.kam.product.unitTest.ProductRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -130,6 +102,19 @@
     <configuration name="user: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="sourceFilePath" value="user/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="user.ldap: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="ldap" />
+            </list>
+          </option>
           <option name="sourceFilePath" value="user/docker-compose.yml" />
         </settings>
       </deployment>
@@ -165,9 +150,9 @@
       <list>
         <item itemvalue="Docker.user.phpldapadmin: Compose Deployment" />
         <item itemvalue="Docker.user.openldap: Compose Deployment" />
+        <item itemvalue="Docker.user.ldap: Compose Deployment" />
         <item itemvalue="Docker.user: Compose Deployment" />
         <item itemvalue="JUnit.DatabaseIntegrationTests" />
-        <item itemvalue="JUnit.ProductRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
