@@ -22,14 +22,14 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
 
-    @Cacheable(value = "products", key = "'products-' + #page + '-' + #size")
+    @Cacheable(value = "products", key = "#root.methodName")
     @Override
     public List<Product> getAllProduct() {
         return productRepository.findAll();
     }
 
     @Override
-    @Cacheable(value = "paginatedProducts", key = "#root.methodName")
+    @Cacheable(value = "paginatedProducts", key = ""'products-' + #page + '-' + #size"")
     public List<Product> getPaginatedProducts(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return productRepository.findAll(pageable).getContent();
