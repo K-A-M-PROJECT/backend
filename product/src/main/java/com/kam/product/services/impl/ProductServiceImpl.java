@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
 
-    @Cacheable(value = "products", key = "#root.methodName")
+    @Cacheable(value = "products", key = "'products-' + #page + '-' + #size")
     @Override
     public List<Product> getAllProduct() {
         return productRepository.findAll();
