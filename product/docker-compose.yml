@@ -32,7 +32,7 @@ services:
       - '6379:6379'
     volumes:
       - ./data:/data
-    command: redis-server --appendonly yes --protected-mode no --replica-read-only no
+    command: redis-server --protected-mode no --replica-read-only no
     networks:
       app_network:
 networks:
