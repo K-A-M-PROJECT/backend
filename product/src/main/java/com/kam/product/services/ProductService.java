@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductService {
     List<Product> getAllProduct();
-    List<Product> getPaginatedProducts(String page, int size);
+    List<Product> getPaginatedProducts(Integer page, int size);
     Product getProductByCode(String code);
     Product addProduct(Product product);
     void deleteProductByCode(String code);
