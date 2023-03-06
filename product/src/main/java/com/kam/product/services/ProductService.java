@@ -1,12 +1,13 @@
 package com.kam.product.services;
 
 import com.kam.product.models.Product;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface ProductService {
     List<Product> getAllProduct();
-    List<Product> getPaginatedProducts(Integer page, int size);
+    Page<Product> getPaginatedProducts(Integer page, int size);
     Product getProductByCode(String code);
     Product addProduct(Product product);
     void deleteProductByCode(String code);

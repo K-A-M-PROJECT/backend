@@ -9,6 +9,7 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
@@ -30,9 +31,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
   //  @Cacheable(value = "productsCache", key = "#page")
-    public List<Product> getPaginatedProducts(Integer page, int size) {
+    public Page<Product> getPaginatedProducts(Integer page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return productRepository.findAll(pageable).getContent();
+        return productRepository.findAll(pageable);
     }
 
 
