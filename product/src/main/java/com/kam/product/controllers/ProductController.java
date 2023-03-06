@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,9 @@ public class ProductController {
     }
 
     @GetMapping("/{page}/{size}")
-    public ResponseEntity<List<Product>> getAllProducts(@PathVariable("page") Integer page,
-                                 @PathVariable("size") int size) {
-        List<Product> products = productService.getPaginatedProducts(page, size);
+    public ResponseEntity<Page<Product>> getAllProducts(@PathVariable("page") Integer page,
+                                                        @PathVariable("size") int size) {
+        Page<Product> products = productService.getPaginatedProducts(page, size);
         return ResponseEntity.ok().body(products);
     }
     @GetMapping("/{code}")

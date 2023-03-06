@@ -80,7 +80,7 @@ public class ProductServiceTest {
 
         given(productRepository.findAll(pageable)).willReturn(productPage);
 
-        List<Product> result = productService.getPaginatedProducts(0, 2);
+        List<Product> result = productService.getPaginatedProducts(0, 2).getContent();
 
         assertEquals(2, result.size());
         assertIterableEquals(result, products);
