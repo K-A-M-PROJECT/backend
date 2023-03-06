@@ -5,14 +5,11 @@ import com.kam.product.models.Product;
 import com.kam.product.repositories.ProductRepository;
 import com.kam.product.services.ProductService;
 import lombok.AllArgsConstructor;
-import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    @Cacheable(value = "productByCode", key = "#code")
+   // @Cacheable(value = "productByCode", key = "#code")
     public Product getProductByCode(String code) {
         return productRepository.findByCode(code).orElseThrow(
                 () -> new ProductNotFoundException(code)
