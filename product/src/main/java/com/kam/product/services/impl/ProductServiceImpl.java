@@ -30,8 +30,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Cacheable(value = "productsCache", key = "#page")
-    public List<Product> getPaginatedProducts(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public List<Product> getPaginatedProducts(String page, int size) {
+        Pageable pageable = PageRequest.of(Integer.parseInt(page), size);
         return productRepository.findAll(pageable).getContent();
     }
 
