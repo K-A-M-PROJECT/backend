@@ -43,19 +43,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @CacheEvict(value = {"products", "paginatedProducts", "productByCode"}, key = "#root.methodName", allEntries = true)
+    @CacheEvict(value = {"products", "productsCache", "productByCode"}, key = "#root.methodName", allEntries = true)
     public Product addProduct(Product product) {
         return productRepository.save(product);
     }
 
     @Override
-    @CacheEvict(value = {"products", "paginatedProducts", "productByCode"}, key = "#root.methodName", allEntries = true)
+    @CacheEvict(value = {"products", "productsCache", "productByCode"}, key = "#root.methodName", allEntries = true)
     public void deleteProductByCode(String code) {
         productRepository.deleteByCode(code);
     }
 
     @Override
-    @CacheEvict(value = {"products", "paginatedProducts", "productByCode"}, key = "#root.methodName", allEntries = true)
+    @CacheEvict(value = {"products", "productsCache", "productByCode"}, key = "#root.methodName", allEntries = true)
     public Product updateProduct(String code, Product updatedProduct) {
         Product existingProduct = productRepository.findByCode(code).orElseThrow(
                 () -> new ProductNotFoundException(code)
