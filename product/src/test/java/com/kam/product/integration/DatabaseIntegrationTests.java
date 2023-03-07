@@ -78,7 +78,7 @@ public class DatabaseIntegrationTests {
     @Test
     @DisplayName("Get paginated products")
     public void testGetPaginatedProducts(){
-        List<Product> products = this.productController.getAllProducts(0, 3).getBody();
+        List<Product> products = this.productController.getAllProducts(0, 3).getBody().getContent();
         assertThat(products.size()).isEqualTo(3);
         assertThat(products).isEqualTo(this.products);
     }

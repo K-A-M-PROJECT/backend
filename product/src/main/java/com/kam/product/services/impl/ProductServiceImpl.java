@@ -27,15 +27,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-  //  @Cacheable(value = "productsCache", key = "#page")
-    public Page<Product> getPaginatedProducts(Integer page, int size) {
+    @Cacheable(value = "productsCache", key = "'products-' + #page + '-' + #size")
+    public Page<Product> getPaginatedProducts(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         return productRepository.findAll(pageable);
     }
 
 
     @Override
-   // @Cacheable(value = "productByCode", key = "#code")
+    @Cacheable(value = "productByCode", key = "#code")
     public Product getProductByCode(String code) {
         return productRepository.findByCode(code).orElseThrow(
                 () -> new ProductNotFoundException(code)

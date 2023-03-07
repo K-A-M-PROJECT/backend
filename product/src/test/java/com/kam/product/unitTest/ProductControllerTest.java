@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
@@ -82,7 +83,7 @@ public class ProductControllerTest {
                 this.product1,
                 this.product2
         );
-        given(productService.getPaginatedProducts(1, 2)).willReturn(products);
+        given(productService.getPaginatedProducts(1, 2)).willReturn((Page<Product>) products);
 
         mockMvc.perform(get("/product/1/2"))
                 .andExpect(status().isOk())

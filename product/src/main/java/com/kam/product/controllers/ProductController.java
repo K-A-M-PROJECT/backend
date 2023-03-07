@@ -29,7 +29,7 @@ public class ProductController {
 
     @GetMapping("/{page}/{size}")
     public ResponseEntity<Page<Product>> getAllProducts(@PathVariable("page") Integer page,
-                                                        @PathVariable("size") int size) {
+                                                        @PathVariable("size") Integer size) {
         Page<Product> products = productService.getPaginatedProducts(page, size);
         return ResponseEntity.ok().body(products);
     }
