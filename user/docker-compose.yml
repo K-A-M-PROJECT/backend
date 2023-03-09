@@ -40,8 +40,8 @@ services:
       - LDAP_BASE_DN=dc=kam,dc=com
       - LDAP_TLS_CRT_FILENAME=server.crt
       - LDAP_TLS_KEY_FILENAME=server.key
-      - LDAP_TLS_CA_CRT_FILENAME=kan=m.com.ca.crt
-      - LDAP_READONLY_USER=true
+      - LDAP_TLS_CA_CRT_FILENAME=kam.com.ca.crt
+      - LDAP_READONLY_USER=false
       - LDAP_READONLY_USER_USERNAME=user-ro
       - LDAP_READONLY_USER_PASSWORD=ro_pass
     networks:
@@ -52,7 +52,7 @@ services:
     container_name: phpldapadmin
     hostname: phpldapadmin
     ports:
-      - "8080:90"
+      - "8081:80"
     environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
