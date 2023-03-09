@@ -18,24 +18,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 @SpringBootApplication
 @EnableMongock
-@EnableCaching
 public class ProductApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProductApplication.class, args);
     }
 
-  /*  @Bean
-    public MongockInitializingBeanRunner mongockRunner(ApplicationContext applicationContext, MongoClient mongoClient) {
-
-        MongoSync4Driver driver = MongoSync4Driver.withDefaultLock(mongoClient, "product-db");
-
-
-        return MongockSpringboot.builder()
-                .setDriver(driver)
-                .addMigrationScanPackage("com.kam.product.migration")
-                .setSpringContext(applicationContext)
-                .buildInitializingBeanRunner();
-    }*/
 }
 
 
