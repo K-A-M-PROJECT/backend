@@ -1,0 +1,6 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {2}to dn.subtree="ou=users,dc=kam,dc=com"
+  by dn.base="cn=admin,dc=kam,dc=com" write
+  by * read

@@ -1,0 +1,7 @@
+dn: ou=users,dc=kam,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+
+
